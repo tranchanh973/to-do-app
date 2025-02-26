@@ -1,10 +1,25 @@
-import Image from "next/image";
+'use client'
+import { useContext } from "react";
+import { TodoContext } from "../context/AppContext";
 
 const AppFooter = () => {
+    const { setIsFilter } = useContext(TodoContext);
+
+    const toggleNotFilter = () => {
+        setIsFilter(false);
+    }
+
+    const toggleFilter = () => {
+        setIsFilter(true);
+    }
+
+
     return (
-        <div className="h-16 w-full bg-white flex items-center fixed bottom-0 left-0">
+        <div className="h-16 w-full bg-white flex items-center fixed bottom-0 left-0 ">
             <div className="flex flex-1 flex-col items-center justify-center">
                 <svg
+                    onClick={() => toggleNotFilter()}
+                    style={{ cursor: "pointer" }}
                     width="30"
                     height="30"
                     viewBox="0 0 30 30"
@@ -18,7 +33,10 @@ const AppFooter = () => {
                 <p className="text-[#9395D3] text-xs">All</p>
             </div>
             <div className="flex flex-1 flex-col items-center justify-center">
+                <p></p>
                 <svg
+                    onClick={() => toggleFilter()}
+                    style={{ cursor: "pointer" }}
                     width="30"
                     height="30"
                     viewBox="0 0 30 30"
