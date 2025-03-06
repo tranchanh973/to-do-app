@@ -17,11 +17,11 @@ const AppFooter = () => {
   };
 
   return (
-    <div className="h-16 w-full bg-white dark:bg-[#17172b] flex items-center fixed bottom-0 left-0 ">
+    <div className="h-16 w-full bg-white dark:bg-[hsl(var(--background-layout))] flex items-center fixed bottom-0 left-0 border-t border-white dark:border-[hsl(var(--border))]">
       <div className="flex flex-1 flex-col items-center justify-center">
         <svg
           onClick={() => toggleNotFilter()}
-          className={`${activeFilter === "all" ? "bg-[#dedeec] text-black dark:bg-[#323245]" : "hover:bg-gray-200"}`}
+          className={`${activeFilter === "all" ? "bg-[#dedeec] text-black dark:bg-[#16162d]" : "hover:bg-[#dedeec] dark:hover:bg-[#16162d]"}`}
           style={{ cursor: "pointer" }}
           width="30"
           height="30"
@@ -39,7 +39,7 @@ const AppFooter = () => {
       <div className="flex flex-1 flex-col items-center justify-center">
         <svg
           onClick={() => toggleFilter()}
-          className={`${activeFilter === "completed" ? "bg-[#dedeec] text-white dark:bg-[#323245]" : "hover:bg-[#dedeec] dark:hover:bg-[#323245]"}`}
+          className={`${activeFilter === "completed" ? "bg-[#dedeec] text-white dark:bg-[#16162d]" : "hover:bg-[#dedeec] dark:hover:bg-[#16162d]"}`}
           style={{ cursor: "pointer" }}
           width="30"
           height="30"

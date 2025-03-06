@@ -35,14 +35,14 @@ const AppTable = () => {
     localStorage.setItem("todos", JSON.stringify(newTodos));
     setTitle("");
     setDescription("");
-    toast.success("Add todo succeed!...");
+    toast.success("Add todo succeed!");
   };
 
-  const removeTodo = (index: number) => {
-    const newTodos = todos.filter((_, i: number) => i !== index);
+  const removeTodo = (id: number) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
     localStorage.setItem("todos", JSON.stringify(newTodos));
-    toast.success("Delete todo succeed!...");
+    toast.success("Delete todo succeed!");
   };
 
   const completeTodo = (id: number) => {
@@ -53,12 +53,12 @@ const AppTable = () => {
     );
     setTodos(newTodos);
     localStorage.setItem("todos", JSON.stringify(newTodos));
-    toast.success("Complete todo succeed!...");
+    toast.success("Complete todo succeed!");
   };
 
   return (
-    <div className="h-[calc(100vh-64px)] w-[100%] p-4 rounded-md scroll-pb-16">
-      <div className="flex gap-2 mt-4">
+    <div className="dark:bg-[hsl(var(--background-layout))] h-[calc(100vh-64px)] w-[100%] p-4 rounded-md scroll-pb-16">
+      <div className="w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] mx-auto flex gap-2 mt-4">
         <input
           type="text"
           value={title}
@@ -75,14 +75,14 @@ const AppTable = () => {
         />
         <button
           onClick={addTodo}
-          className="bg-[#9395D3] text-white px-4 py-2 rounded-md hover:bg-[#7A7CB2] dark:bg-[#0b1016] dark:hover:bg-black"
+          className="bg-[#9395D3] text-white px-4 py-2 rounded-md hover:bg-[#7A7CB2] dark:bg-[#070a0d] dark:hover:bg-black dark:border dark:border-gray-100"
         >
           Add
         </button>
       </div>
 
       <div className="space-y-4 pb-16">
-        {todos.length === 0 ? (
+        {filteredTodos.length === 0 ? (
           <div className="flex flex-col items-center justify-center">
             <Image
               className="mt-10"
@@ -93,14 +93,14 @@ const AppTable = () => {
               priority
             />
             <div className="text-center text-[#7A7CB2] text-lg mt-2">
-              Don't have any todo
+              {isFilter ? "There are no completed tasks" : "There are no tasks"}
             </div>
           </div>
         ) : (
           filteredTodos.map((todo, index) => (
             <div
               key={index}
-              className="h-[82px] w-[96.6%] bg-white dark:bg-[#0d1117] flex items-center mx-2 my-7 border border-black rounded-md last:!mb-8"
+              className="h-[82px] w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] mx-auto bg-white dark:bg-black flex items-center my-7 border-opacity-25 border border-black dark:border-gray-200 rounded-md last:!mb-8"
             >
               <div className="flex flex-col items-center justify-between flex-1 mx-5">
                 <div className="flex justify-center items-center text-[#9395D3] uppercase font-bold">
@@ -155,7 +155,7 @@ const AppTable = () => {
                   />
                 </svg> */}
                 <svg
-                  onClick={() => removeTodo(index)}
+                  onClick={() => removeTodo(todo.id)}
                   style={{ cursor: "pointer" }}
                   className="flex justify-center items-center w-[25px]"
                   width="25"

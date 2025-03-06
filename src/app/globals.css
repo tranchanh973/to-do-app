@@ -12,6 +12,8 @@ body {
 
 /* Theme Dark Mode */
 .dark body {
-  background-color: #1e1e2e;
+  background-color: hsl(222.2, 84%, 4.9%);
   color: #ffffff;
+  --background-layout: 222.2 84% 4.9%;
+  --border: 217.2 32.6% 17.5%;
 }
