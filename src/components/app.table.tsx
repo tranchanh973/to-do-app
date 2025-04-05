@@ -102,11 +102,11 @@ const AppTable = () => {
               key={index}
               className="h-[82px] w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] mx-auto bg-white dark:bg-black flex items-center my-7 border-opacity-25 border border-black dark:border-gray-200 rounded-md last:!mb-8"
             >
-              <div className="flex flex-col items-center justify-between flex-1 mx-5">
-                <div className="flex justify-center items-center text-[#9395D3] uppercase font-bold">
+              <div className="flex flex-col justify-between flex-1 mx-5 pl-4">
+                <div className="flex text-[#9395D3] uppercase font-bold">
                   {todo.title}
                 </div>
-                <div className="flex justify-center items-center text-black dark:text-[#fff]">
+                <div className="flex text-black dark:text-[#fff]">
                   {todo.description}
                 </div>
               </div>
