@@ -58,24 +58,24 @@ const AppTable = () => {
 
   return (
     <div className="dark:bg-[hsl(var(--background-layout))] h-[calc(100vh-64px)] w-[100%] p-4 rounded-md scroll-pb-16">
-      <div className="w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] mx-auto flex gap-2 mt-4">
+      <div className="w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] mx-auto flex flex-col sm:flex-row gap-2 mt-4 items-center">
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
-          className="border p-2 flex-1 rounded-md"
+          className="border p-2 flex-1 rounded-md w-full sm:w-auto"
         />
         <input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Detail"
-          className="border p-2 flex-1 rounded-md"
+          className="border p-2 flex-1 rounded-md w-full sm:w-auto"
         />
         <button
           onClick={addTodo}
-          className="bg-[#9395D3] text-white px-4 py-2 rounded-md hover:bg-[#7A7CB2] dark:bg-[#070a0d] dark:hover:bg-black dark:border dark:border-gray-100 sm:mr-2"
+          className="bg-[#9395D3] text-white px-4 py-2 rounded-md hover:bg-[#7A7CB2] dark:bg-[#070a0d] dark:hover:bg-black dark:border dark:border-gray-100 w-full sm:w-auto"
         >
           Add
         </button>
