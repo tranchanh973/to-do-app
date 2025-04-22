@@ -75,7 +75,7 @@ const AppTable = () => {
         />
         <button
           onClick={addTodo}
-          className="bg-[#9395D3] text-white px-4 py-2 rounded-md hover:bg-[#7A7CB2] dark:bg-[#070a0d] dark:hover:bg-black dark:border dark:border-gray-100"
+          className="bg-[#9395D3] text-white px-4 py-2 rounded-md hover:bg-[#7A7CB2] dark:bg-[#070a0d] dark:hover:bg-black dark:border dark:border-gray-100 sm:mr-2"
         >
           Add
         </button>

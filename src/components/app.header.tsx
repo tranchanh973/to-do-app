@@ -5,7 +5,7 @@ const AppHeader = () => {
     <div className="h-20 w-full bg-[#9395D3] text-white dark:bg-[hsl(var(--background-layout))] flex items-center justify-between px-5 sticky top-0 z-10 shadow-md border-b border-[#9395D3] dark:border-[hsl(var(--border))]">
       <div className="flex items-center gap-3">
         <svg
-          className=""
+          className="w-8 h-8 sm:w-6 sm:h-6"
           width="32"
           height="32"
           viewBox="0 0 32 32"
