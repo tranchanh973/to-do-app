@@ -1,16 +1,21 @@
 "use client";
 import { useContext, useState } from "react";
-import { TodoContext } from "../context/AppContext";
+import { useAtom } from "jotai";
+import { isFilterAtom } from "../types/atom"; // đường dẫn tùy theo vị trí của file
 
 const AppFooter = () => {
-  const { setIsFilter } = useContext(TodoContext);
+  // Luu tru trang thai fillter
+  // Neu trang thai fillter la true thi hien thi danh sach todo da hoan thanh
+  const [isFilter, setIsFilter] = useAtom(isFilterAtom);
   const [activeFilter, setActiveFilter] = useState("all");
 
+  // Set lai trang thai fillter, set cho trang thai hien thi danh sach cac fillter la all
   const toggleNotFilter = () => {
     setIsFilter(false);
     setActiveFilter("all");
   };
 
+  // Set lai trang thai fillter, set cho trang thai hien thi danh sach cac fillter la completed
   const toggleFilter = () => {
     setIsFilter(true);
     setActiveFilter("completed");

@@ -2,12 +2,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Todo } from "../types/Todo";
-import { useContext } from "react";
-import { TodoContext } from "../context/AppContext";
 import { toast } from "react-toastify";
+import { isFilterAtom } from "@/types/atom";
+import { useAtom } from "jotai";
 
 const AppTable = () => {
-  const { isFilter } = useContext(TodoContext);
+  const [isFilter] = useAtom(isFilterAtom);
 
   const [todos, setTodos] = useState<Todo[]>([]);
   const [title, setTitle] = useState("");
@@ -21,10 +21,13 @@ const AppTable = () => {
     }
   }, []);
 
+  // Kiem tra trang thai cua cac todo da hoan thanh hay chua
   const filteredTodos = isFilter
     ? todos.filter((todo) => todo.completed)
     : todos.filter((todo) => !todo.completed);
 
+  // Ham them todo
+  // Neu title hoac description khac rong thi them todo vao danh sach
   const addTodo = () => {
     if (title.trim() === "" || description.trim() === "") return;
     const newTodos = [
@@ -32,27 +35,39 @@ const AppTable = () => {
       { id: Date.now(), title, description, completed: false },
     ];
     setTodos(newTodos);
+    // Luu danh sach todo moi vao localStorage
     localStorage.setItem("todos", JSON.stringify(newTodos));
+    // Reset title va description ve rong sau khi them todo
     setTitle("");
     setDescription("");
+    // Thong bao thanh cong
     toast.success("Add todo succeed!");
   };
 
+  // Ham xoa todo
+  // Nhan id cua todo can xoa, loc danh sach todo de lay danh sach moi khong co todo da xoa
   const removeTodo = (id: number) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
+    // Cap nhat danh sach todo moi khong chua id cua todo can xoa
     setTodos(newTodos);
+    // Cap nhat danh sach todo moi khong chua id cua todo can xoa
     localStorage.setItem("todos", JSON.stringify(newTodos));
+    // Thong bao thanh cong
     toast.success("Delete todo succeed!");
   };
 
+  // Ham danh dau todo da hoan thanh
+  // Nhan id cua todo can danh dau da hoan thanh, loc danh sach todo de lay danh sach moi co todo da hoan thanh
   const completeTodo = (id: number) => {
     console.log("completed:", id);
-
     const newTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, completed: true } : todo
     );
+    // Cap nhat lai danh sach todo neu co todo moi da hoan thanh
     setTodos(newTodos);
+    // Luu danh sach todo moi da hoan thanh vao localStorage
     localStorage.setItem("todos", JSON.stringify(newTodos));
+    // Thong bao thanh cong
     toast.success("Complete todo succeed!");
   };
 

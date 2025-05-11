@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
-import AppHeader from "@/components/app.header";
-import AppFooter from "@/components/app.footer";
-import { TodoProvider } from "@/context/AppContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Providers } from "./providers";
@@ -27,10 +24,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${jostFont.className} bg-[#D6D7EF]`}>
         <Providers>
-          <TodoProvider>
-            {children}
-            <ToastContainer />
-          </TodoProvider>
+          {children}
+          <ToastContainer />
         </Providers>
       </body>
     </html>
