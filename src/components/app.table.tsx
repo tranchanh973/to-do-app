@@ -72,7 +72,7 @@ const AppTable = () => {
   };
 
   return (
-    <div className="dark:bg-[hsl(var(--background-layout))] h-[calc(100vh-64px)] w-[100%] p-4 rounded-md scroll-pb-16">
+    <div className="dark:bg-[--background-layout] h-[calc(100vh-64px)] w-[100%] p-4 rounded-md scroll-pb-16">
       <div className="w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] mx-auto flex flex-col sm:flex-row gap-2 mt-4 items-center">
         <input
           type="text"
@@ -90,7 +90,7 @@ const AppTable = () => {
         />
         <button
           onClick={addTodo}
-          className="bg-[#9395D3] text-white px-4 py-2 rounded-md hover:bg-[#7A7CB2] dark:bg-[#070a0d] dark:hover:bg-black dark:border dark:border-gray-100 w-full sm:w-auto"
+          className="bg-[#9395D3] text-white px-4 py-2 rounded-md hover:bg-[#7A7CB2] dark:bg-[--button-add] dark:hover:bg-[--button-add-hover] dark:border dark:border-gray-100 w-full sm:w-auto"
         >
           Add
         </button>
@@ -107,7 +107,7 @@ const AppTable = () => {
               height={100}
               priority
             />
-            <div className="text-center text-[#7A7CB2] text-lg mt-2">
+            <div className="text-center text-[--text-notodo] text-lg mt-2">
               {isFilter ? "There are no completed tasks" : "There are no tasks"}
             </div>
           </div>
@@ -118,10 +118,10 @@ const AppTable = () => {
               className="h-[82px] w-[100%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[50%] mx-auto bg-white dark:bg-black flex items-center my-7 border-opacity-25 border border-black dark:border-gray-200 rounded-md last:!mb-8"
             >
               <div className="flex flex-col justify-between flex-1 mx-5 pl-4">
-                <div className="flex text-[#9395D3] uppercase font-bold">
+                <div className="flex text-[--text-title] uppercase font-bold">
                   {todo.title}
                 </div>
-                <div className="flex text-black dark:text-[#fff]">
+                <div className="flex text-[--text-description] ">
                   {todo.description}
                 </div>
               </div>

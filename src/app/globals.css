@@ -4,6 +4,8 @@
 
 body {
   background-color: #ffffff;
+  --text-title: #9395d3;
+  --text-description: #171515;
   color: #333;
   transition:
     background-color 0.3s ease,
@@ -14,6 +16,12 @@ body {
 .dark body {
   background-color: hsl(222.2, 84%, 4.9%);
   color: #ffffff;
-  --background-layout: 222.2 84% 4.9%;
+  --background-layout: hsl(222.2 84% 4.9%);
+  --button-add: #0d0707;
+  --button-add-hover: black;
+  --text-notodo: #7a7cb2;
+  --text-title: #9395d3;
+  --text-description: #fff;
+  --background-button-filter: #16162d;
   --border: 217.2 32.6% 17.5%;
 }
